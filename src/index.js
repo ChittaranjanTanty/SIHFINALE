@@ -6,6 +6,7 @@ const ServerConfig = require('./config/serverConfig');
 const connectDB = require('./config/dbConfig');
 const userRouter = require('./routes/userRoute');
 const authRouter = require('./routes/authRoute');
+const mLogbookRouter =require('./routes/mLogbookRoute')
 
 const app = express();
 
@@ -29,6 +30,7 @@ app.use('/users', userRouter);
 
 app.use('/auth', authRouter);
 
+app.use('/mlogbook',mLogbookRouter)
 
 app.get('/ping', (req, res) => {
     console.log(req.body);
