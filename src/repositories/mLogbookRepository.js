@@ -19,6 +19,18 @@ async function createLogbook(logbookDetails) {
     }
 }
 
+async function getAllLogbooks() {
+    try {
+        const response = await mLogbook.find(); // Fetch all logbook entries
+        return response;
+    } catch (error) {
+        console.error(error);
+        throw new InternalServerError("Failed to fetch logbook entries");
+    }
+}
+
 module.exports = {
     createLogbook,
+    getAllLogbooks, // Export the function to fetch all logbooks
 };
+

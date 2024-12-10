@@ -1,4 +1,4 @@
-const { createLogbook } = require("../repositories/mLogbookRepository");
+const { createLogbook, getAllLogbooks } = require("../repositories/mLogbookRepository");
 
 async function createNewLogbookEntry(logbookDetails) {
     console.log("Hitting service layer for creating a new logbook entry");
@@ -21,6 +21,22 @@ async function createNewLogbookEntry(logbookDetails) {
     return newLogbookEntry;
 }
 
+async function fetchAllLogbookEntries() {
+    console.log("Hitting service layer for fetching all logbook entries");
+
+    // Fetch all logbook entries from the database
+    const logbookEntries = await getAllLogbooks();
+
+    if (!logbookEntries || logbookEntries.length === 0) {
+        throw { reason: "No logbook entries found", statusCode: 404 };
+    }
+
+    // Return the list of logbook entries
+    return logbookEntries;
+}
+
 module.exports = {
     createNewLogbookEntry,
+    fetchAllLogbookEntries, // Export the new function for fetching logbooks
 };
+
