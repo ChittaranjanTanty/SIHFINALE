@@ -3,8 +3,7 @@ const mongoose = require("mongoose");
 const hazardReportSchema = new mongoose.Schema(
   {
     reportDate: {
-      type: String,
-      required: true,
+      type:String,                                                                                                                                 required: true,
     },
     supervisorName: {
       type: String,
