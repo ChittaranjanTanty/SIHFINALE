@@ -7,7 +7,7 @@ const connectDB = require('./config/dbConfig');
 const userRouter = require('./routes/userRoute');
 const authRouter = require('./routes/authRoute');
 const mLogbookRouter =require('./routes/mLogbookRoute')
-
+const hazardReportRouter = require('./routes/HazardReportingFormRoute'); 
 const app = express();
 
 // Configure CORS
@@ -31,6 +31,8 @@ app.use('/users', userRouter);
 app.use('/auth', authRouter);
 
 app.use('/mlogbook',mLogbookRouter)
+
+app.use('/hazard-report', hazardReportRouter);
 
 app.get('/ping', (req, res) => {
     console.log(req.body);
