@@ -8,6 +8,8 @@ const userRouter = require('./routes/userRoute');
 const authRouter = require('./routes/authRoute');
 const mLogbookRouter =require('./routes/mLogbookRoute')
 const hazardReportRouter = require('./routes/HazardReportingFormRoute'); 
+const logbookRoutes = require('./routes/logbookRoute');
+
 const app = express();
 
 // Configure CORS
@@ -33,6 +35,8 @@ app.use('/auth', authRouter);
 app.use('/mlogbook',mLogbookRouter)
 
 app.use('/hazard-report', hazardReportRouter);
+
+app.use('/api',logbookRoutes);
 
 app.get('/ping', (req, res) => {
     console.log(req.body);
