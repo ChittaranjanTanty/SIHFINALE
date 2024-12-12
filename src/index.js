@@ -9,6 +9,7 @@ const authRouter = require('./routes/authRoute');
 const mLogbookRouter =require('./routes/mLogbookRoute')
 const hazardReportRouter = require('./routes/HazardReportingFormRoute'); 
 const logbookRoutes = require('./routes/logbookRoute');
+const hazardRoutes = require('./routes/hazardRoutes')
 
 const app = express();
 
@@ -37,6 +38,8 @@ app.use('/mlogbook',mLogbookRouter)
 app.use('/hazard-report', hazardReportRouter);
 
 app.use('/api',logbookRoutes);
+
+app.use('/api', hazardRoutes);
 
 app.get('/ping', (req, res) => {
     console.log(req.body);
